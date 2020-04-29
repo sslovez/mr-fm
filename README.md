@@ -1,24 +1,12 @@
-# mr-fm
+## 第一天
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### 路由配置
+1. 页面有哪些：
+ 推荐页面
+ 音单页面
+ 分类页面
+ 搜索页面
+ 个人中心页面
+ 登录页面
+ 注册页面
+ 
