@@ -1,12 +1,12 @@
 <template>
   <div class="page-tab">
-    <router-link to="/music" tag="div" active-class="sel">
+    <router-link to="/total/music" tag="div" active-class="sel">
       <span>音单</span>
     </router-link>
-    <router-link to="/recommend" tag="div" active-class="sel">
+    <router-link to="/total/recommend" tag="div" active-class="sel">
       <span>推荐</span>
     </router-link>
-    <router-link to="/classify" tag="div" active-class="sel">
+    <router-link to="/total/classify" tag="div" active-class="sel">
       <span>分类</span>
     </router-link>
   </div>
@@ -17,7 +17,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-// @import 'assets/style/base.scss';
 .page-tab {
   width: 100%;
   height: 40px;
@@ -34,7 +33,6 @@ export default {};
       height: 38px;
       width: 75px;
       display: inline-block;
-      // border-bottom: 1px solid black;
     }
   }
   .sel{

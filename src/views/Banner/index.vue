@@ -40,9 +40,6 @@ export default {
       });
     }
   }
-  /* mounted() {
-    this.initBanner();
-  } */
 };
 </script>
 <style lang="scss" scoped>

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Classify from '../views/Classify'
-import Login from '../views/Login'
-import Music from '../views/Music'
-import My from '../views/My'
-import Recommend from '../views/Recommend'
-import Register from '../views/Register'
-import Search from '../views/Search'
+import Total from '@/views/Total'
+import Classify from '@/views/Classify'
+import Login from '@/views/Login'
+import Music from '@/views/Music'
+import My from '@/views/My'
+import Recommend from '@/views/Recommend'
+import Register from '@/views/Register'
+import Search from '@/views/Search'
 
 Vue.use(VueRouter)
 
@@ -15,22 +16,33 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/recommend'
+      redirect: '/total'
     },
     {
-      name: 'music',
-      path: '/Music',
-      component: Music
-    },
-    {
-      name: 'recommend',
-      path: '/Recommend',
-      component: Recommend
-    },
-    {
-      name: 'classify',
-      path: '/Classify',
-      component: Classify
+      name:'total',
+      path:'/Total',
+      component:Total,
+      children:[
+        {
+          path:'',
+          redirect:'/total/recommend'
+        },
+        {
+          name: 'music',
+          path: 'Music',
+          component: Music
+        },
+        {
+          name: 'recommend',
+          path: 'Recommend',
+          component: Recommend
+        },
+        {
+          name: 'classify',
+          path: 'Classify',
+          component: Classify
+        },
+      ]
     },
     {
       name: 'my',

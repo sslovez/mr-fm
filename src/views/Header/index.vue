@@ -4,11 +4,11 @@
       <a href="/" alt="MissEvan">
         <i class="logo"></i>
       </a>
-      <div class="actions">
-        <router-link to="/search">
-          <i class="search"></i>
-        </router-link>
-        <i class="menu"></i>
+      <div class="actions" @click="jump">
+        <a>
+          <i class="search"  ></i>
+        </a>
+        <i class="menu" ></i>
       </div>
     </div>
   </div>
@@ -16,17 +16,18 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  methods:{
+    jump(){
+      this.$router.history.push('/search')
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
 .page-header {
-  // background: pink;
   width: 100%;
   height: 40px;
-  // position: fixed;
-  // z-index: 22;
-  // overflow: hidden;
   .content {
     display: flex;
     // position: fixed;

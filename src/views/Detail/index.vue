@@ -15,10 +15,15 @@
         </div>
       </div>
       <div class="panel-body">
-        <a class="Thumbnail sound" href="/sound/418051" v-for="(items,index) in item.objects_point" :key="index">
+        <a
+          class="Thumbnail sound"
+          href="/sound/418051"
+          v-for="(items,index) in item.objects_point"
+          :key="index"
+        >
           <img
             :alt="items.soundstr"
-            :src="'http://static.missevan.com/coversmini/' + items.cover_image"
+            v-lazy="'http://static.missevan.com/coversmini/' + items.cover_image"
             :title="items.soundstr"
             class="lazy-image lazy-loaded cover"
           />
@@ -42,15 +47,9 @@ export default {
       default() {
         return [];
       }
-    },
-    detail1: {
-      type: Array,
-      default() {
-        return [];
-      }
     }
   },
-  methods:{}
+  methods: {}
 };
 </script>
 <style lang="scss" scoped>

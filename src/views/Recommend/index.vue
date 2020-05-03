@@ -1,5 +1,6 @@
 <template>
   <div class="page-recommend">
+   
     <banner :banners="list"></banner>
     <div class="Panel sounds">
       <div class="panel-head">
@@ -19,7 +20,7 @@
         <a class="Thumbnail sound" href="/sound/418051" v-for="item in list1" :key="item.id">
           <img
             :alt="item.soundstr"
-            :src="item.front_cover"
+            v-lazy="item.front_cover"
             title="item.soundstr"
             class="lazy-image lazy-loaded cover"
           />
@@ -31,14 +32,15 @@
         </a>
       </div>
     </div>
-    <Detail :detail="list2" :detail1='list3'></Detail>
+    <Detail :detail="list2"></Detail>
+    
   </div>
 </template>
 
 <script>
 import Banner from "../Banner";
+import { getBannerData, getRecommendData } from "@/api/api";
 import Detail from "../Detail";
-// import axios from '@/utils/axios'
 export default {
   name: "Recommend",
   components: { Banner, Detail },
@@ -46,37 +48,19 @@ export default {
     return {
       list: [],
       list1: [],
-      list2: [],
+      list2: []
     };
   },
-  methods: {
-    getBannerData() {
-      //请求轮播图数据
-      let url = "/banner/mobileWeb/newHomepage3";
-      this.$axios.get(url).then(res => {
-        // console.log(res);
-        this.list = res.info.banner;
-        this.list1 = res.info.sound.slice(0, 3);
-        // console.log(this.list1)
-      });
-    },
-    getRecommendData() {
-      //获取推荐页面的广播剧
-      let url = "/banner/sound/newhomepagedata";
-      this.$axios.get(url).then(res => {
-        this.list2 = res.music
-        console.log(this.list2)
-        // for (let i = 0; i < res.music.length; i++) {
-        //   this.list3.push(res.music[i].objects_point);
-        // }
-        // console.log(this.list3)
-        
-      });
-    }
-  },
+  methods: {},
   mounted() {
-    this.getBannerData();
-    this.getRecommendData();
+    getBannerData().then(
+      res => (
+        (this.list = res.info.banner), (this.list1 = res.info.sound.slice(0, 3))
+      )
+    );
+    getRecommendData().then(
+      res => (this.list2 = res.music)
+    );
   }
 };
 </script>
